@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Method - PaperTrail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">PaperTrail</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+                    <li class="nav-item"><a class="nav-link" href="wishlist.html">Wishlist</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">
+                            <i class="fas fa-user me-1"></i> Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">
+                            <i class="fas fa-shield-alt me-1"></i> Admin
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h2 class="mb-4 text-center">Choose Payment Method</h2>
+
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Order Summary</h5>
+                            <div id="orderSummary" class="mb-3"></div>
+                            <div class="border-top pt-3">
+                                <p class="fw-bold fs-5 mb-0">Total: ₹<span id="orderTotal">0.00</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Select Payment Method</h5>
+
+                            <div class="payment-options">
+                                <div class="form-check mb-3 p-3 border rounded">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="cod" checked>
+                                    <label class="form-check-label d-flex align-items-center" for="cod">
+                                        <div class="me-3">
+                                            <i class="fas fa-truck text-success" style="font-size: 24px;"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Cash on Delivery</strong>
+                                            <p class="mb-0 text-muted">Pay when you receive your order</p>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div class="form-check mb-3 p-3 border rounded">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="card" value="card">
+                                    <label class="form-check-label d-flex align-items-center" for="card">
+                                        <div class="me-3">
+                                            <i class="fas fa-credit-card text-primary" style="font-size: 24px;"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Credit/Debit Card</strong>
+                                            <p class="mb-0 text-muted">Pay securely with your card</p>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div class="form-check mb-3 p-3 border rounded">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="upi" value="upi">
+                                    <label class="form-check-label d-flex align-items-center" for="upi">
+                                        <div class="me-3">
+                                            <i class="fas fa-mobile-alt text-info" style="font-size: 24px;"></i>
+                                        </div>
+                                        <div>
+                                            <strong>UPI</strong>
+                                            <p class="mb-0 text-muted">Pay using UPI apps like Google Pay, PhonePe</p>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div class="form-check mb-3 p-3 border rounded">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="netbanking" value="netbanking">
+                                    <label class="form-check-label d-flex align-items-center" for="netbanking">
+                                        <div class="me-3">
+                                            <i class="fas fa-university text-secondary" style="font-size: 24px;"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Net Banking</strong>
+                                            <p class="mb-0 text-muted">Pay through your bank account</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                                <button class="btn btn-outline-secondary me-md-2" onclick="goBack()">Back to Checkout</button>
+                                <button class="btn btn-success btn-lg" onclick="proceedToPay()">Continue to Payment</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 PaperTrail. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/notifications.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        function loadOrderSummary() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const orderSummary = document.getElementById('orderSummary');
+            
+            if (cart.length === 0) {
+                orderSummary.innerHTML = '<p class="text-muted">No items in cart</p>';
+                document.getElementById('orderTotal').textContent = '0.00';
+                return;
+            }
+
+            orderSummary.innerHTML = '';
+            cart.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'd-flex justify-content-between align-items-center border-bottom py-2';
+                itemDiv.innerHTML = `
+                    <div><span class="fw-medium">${item.title}</span><small class="text-muted d-block">₹${item.price} x ${item.quantity}</small></div>
+                    <span class="fw-bold">₹${(item.price * item.quantity).toFixed(2)}</span>
+                `;
+                orderSummary.appendChild(itemDiv);
+            });
+            
+            const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            document.getElementById('orderTotal').textContent = total.toFixed(2);
+        }
+
+        function goBack() { window.location.href = 'checkout.html'; }
+        function proceedToPay() {
+            const selectedMethod = document.querySelector('input[name="paymentMethod"]:checked');
+            if (!selectedMethod) { alert('Please select a payment method'); return; }
+            localStorage.setItem('selectedPaymentMethod', selectedMethod.value);
+            window.location.href = 'payment.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadOrderSummary();
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>
